@@ -1,0 +1,39 @@
+import { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
+
+
+
+export const App = () => {
+
+  const [prod , setprod] = useState();
+
+  function products(){
+    setprod(axios.get("https/get product"));
+  }
+  useEffect(()=>{
+    products();
+  },[]);
+
+  return(
+        <div>
+          {prod.map((item,index) =>{
+          return(
+           <div className= "container">
+              <Item data={item}/>
+           </div>
+          )})
+          }
+        </div>
+  );
+}
+export const Item =(props) => { //Productdetails
+
+return (
+    <div>
+                              <h1>{ props.data.name}</h1>
+                              <img src ={props.data.imgSrc} />
+                              <p>{ props.data.price}</p>
+                            </div>
+);
+}

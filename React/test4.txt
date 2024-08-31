@@ -1,0 +1,28 @@
+import React from "react";
+import { useState } from "react";
+
+
+const products = [{ productId: 0,name: "ProductName1",price: 200,imgSrc:"image1.jpg"},
+{productId:1,name:"ProductName2",price:400,imgSrc:"image2.png"},
+{ productId: 2 , name: "ProductName3" , price: 700, imgSrc: "image3.jpg" }
+];
+
+
+
+export const App = () => {
+
+  return(
+        <div>
+          {products.map((item,index) =>{
+           return(
+            <div>
+                           <img src ={item.imgSrc}/>
+                          <h3>{ item.name}</h3>
+                         <p>{ item.price}</p>
+
+                       </div>
+          )})
+          }
+        </div>
+  );
+}

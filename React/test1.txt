@@ -1,0 +1,58 @@
+import React from "react";
+import { useState } from "react";
+
+
+ const products = [
+  { productId: 0 , name: "ProductName1" , price: 200, imgSrc: "image1.jpg" , details: "Product Details 1"},
+  { productId: 1 , name: "ProductName2" , price: 400, imgSrc: "image2.png" , details: "Product Details 2"},
+  { productId: 2 , name: "ProductName3" , price: 700, imgSrc: "image3.jpg" , details: "Product Details 3"}];
+
+export const App = () => {
+
+
+  const [ChoosenProduct , setChoosenProduct] = useState(0);
+
+
+
+  function handleClick (productId) {
+    setChoosenProduct(productId);
+  }
+  return(
+        <div>
+          {products.map((item,index) =>{
+           return(
+            <button onClick={()=>{handleClick(item.productId)}}>
+              <ProductList data={item}/>
+            </button>
+          )})
+          }
+          <Productdetails item={products[ChoosenProduct]}/>
+        </div>
+  );
+}
+export const Productdetails =(props) => { //Productdetails
+
+return (
+    <div className= "container">
+        <h1>{ props.data.name}</h1>
+        <img src ={props.data.imgSrc}/>
+        <p>{ props.data.price}</p>
+        <p>{ props.data.details}</p>
+        <p>{ props.data.details}</p>
+    </div>
+);
+}
+export const ProductList =(props) => { //Productdetails
+
+return (
+    <div className= "product">
+        <h1>{ props.data.name}</h1>
+
+        <p>{ props.data.price}</p>
+        <p>{ props.data.details}</p>
+    </div>
+);
+}
+
+
+

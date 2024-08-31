@@ -1,0 +1,60 @@
+import          React from "react";
+import { useRef } from "react";
+import img1 from "image5.jpg";
+import img2 from "image6.jpg";
+import img3 from "image7.jpg";
+
+
+export const Test = () => {
+  const HomeSectionRef = useRef(null);
+  const ServicesSectionRef  = useRef(null);
+  const AboutSectionRef = useRef(null);
+  const ContactSectionRef = useRef(null);
+
+  function scrollToSection (refer) {
+  refer.current.scrollIntoView();
+  }
+
+
+
+return (
+    <div>
+      <div ref ={HomeSectionRef}>
+        <button onClick={() => {scrollToSection(HomeSectionRef)}}>Home</button>
+        <button onClick={() => {scrollToSection(ServicesSectionRef)}}>Services</button>
+        <button onClick={() => {scrollToSection(AboutSectionRef)}}>About</button>
+        <button onClick={() => {scrollToSection(ContactSectionRef)}}>Contact</button>
+      </div>
+        <div ref={ServicesSectionRef}>
+          <h2>Services</h2>
+          <div>
+          <img src={img1}/>
+          <p>Amazing Designing Applicton</p>
+          </div>
+          <div>
+          <img src={img2}/>
+          <p>Application development</p>
+          </div>
+          <div>
+          <img src={img1}/>
+          <p>Website development</p>
+          </div>
+        </div>
+        <br/>
+        {/* <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> */}
+        <div ref={AboutSectionRef}>
+          <h2>About</h2>
+          <p>We are profisional team specialized inn analysing planning designing and developing
+            Technical Systems
+          </p>
+        </div>
+        <div ref={ContactSectionRef}>
+          <h2>Contact us</h2>
+          <a href="ahmad@gmail">Mail</a>
+          <a href="facebook.com">Facebook</a>
+          <a href="insta.com">instagram</a>
+
+        </div>
+      </div>
+  );
+}

@@ -1,0 +1,44 @@
+import { useEffect } from "react";
+import { useState } from "react";
+
+
+  const staticProducts =[{name: "Product 1",imgSrc: "image2.png",price: "10"},
+  {name: "Product 2",imgSrc: "image4.jpg",price: "8"},
+  {name: "Product 3",imgSrc: "image3.jpg",price: "10"},
+  {name: "Product 4",imgSrc: "image1.jpg",price: "9"}];
+export const App = () => {
+  const [prod, setProd] = useState(null);
+
+  function products ()  {
+
+
+    setProd(staticProducts);
+  }
+
+  useEffect(() => {
+    products();
+  }, []);
+
+  return (
+    <div>
+      {prod.map((item, index) => {
+        return (
+          <div className="container">
+            <Item data={item} />
+          </div>
+        )
+      })}
+    </div>
+  );
+}
+
+export const Item = (props) => { //Productdetails
+
+return (
+    <div>
+          <h1>{ props.data.name}</h1>
+          <img src={props.data.imgSrc}/>
+          <p>{ props.data.price}</p>
+        </div>
+);
+}
